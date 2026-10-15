@@ -485,6 +485,7 @@ if (new URLSearchParams(location.search).has('embed')) document.documentElement.
   const F = U.numbered(J.festivals.map((f) => ({ ...f, st: U.status(f, T) })));
   const byId = Object.fromEntries(F.map((f) => [f.id, f]));
   const M = J.merchants;
+  const TOTAL = C.merchantTotal || M.length; // 안내 문구에 쓰는 전체 가맹점 수
   const $ = (s) => document.querySelector(s);
   const year = 2026;
   const MONTHS = [9, 10, 11, 12];
@@ -575,7 +576,7 @@ if (new URLSearchParams(location.search).has('embed')) document.documentElement.
       ${pill(f)}
     </button>`).join('') || '<div class="empty">곧 열리는 축제가 없어요.</div>';
   $('#passList').innerHTML = [
-    [`할인가맹점 ${M.length}곳`, '14개 시군 음식점·카페·숙박·체험'],
+    [`할인가맹점 ${TOTAL}곳`, '14개 시군 음식점·카페·숙박·체험'],
     ['투어패스 1일권', '가입 때 혜택 제공 동의 시 무료'],
     ['‘참참’ 5,000원 쿠폰', '농촌여행 플랫폼 함께 가입 시'],
   ].map(([a, b]) => `<li><b>${a}</b><span>${b}</span></li>`).join('');
@@ -719,7 +720,7 @@ if (new URLSearchParams(location.search).has('embed')) document.documentElement.
   // ── 도민증 ──
   $('#issueBtn').href = C.issueUrl;
   $('#beneList').innerHTML = [
-    [ICON.tag, `할인가맹점 ${M.length}곳`, '결제 전에 도민증을 보여 주면 가게마다 정한 할인·서비스를 받아요.'],
+    [ICON.tag, `할인가맹점 ${TOTAL}곳`, '결제 전에 도민증을 보여 주면 가게마다 정한 할인·서비스를 받아요.'],
     [ICON.ticket, '전북투어패스 1일권 무료', '도민증 가입 때 혜택 제공에 동의하면 투어패스 1일권을 받아 투어패스 가맹 관광지에서 쓸 수 있어요.'],
     [ICON.gift, '농촌여행 ‘참참’ 5,000원 쿠폰', '도민증과 ‘참참’에 함께 가입하면 5,000원 상당 모바일 쿠폰을 받아요. 가입 때 혜택 제공 동의(전체 동의)가 필요해요.'],
   ].map(([ic, b, s]) => `<li><span class="ic">${ic}</span><div><b>${b}</b><span>${s}</span></div></li>`).join('');
