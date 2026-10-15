@@ -12,7 +12,7 @@
 |---|---|
 | `index.html` | 앱 화면 |
 | `data/festivals.js` | 축제 47개 일정·장소·프로그램·사진 출처 |
-| `data/merchants.js` | 도민증 할인가맹점 506곳 |
+| `data/merchants.js` | 도민증 할인가맹점 510곳 |
 | `data/geo.js` | 전북 14개 시군 경계 |
 | `lib/common.js` | 날짜·거리·카카오맵 링크 등 공용 도우미 |
 | `img/` | 축제 사진 47장 (위키미디어 공용, 출처는 `data/festivals.js`) |
